@@ -10,15 +10,10 @@ WHERE age>=18 AND termdate IS NULL
 GROUP BY 1;
 
 OR 
-	SELECT 
-    gender,
-    COUNT(*) AS count,
+	SELECT gender,COUNT(*) AS count,
     ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 2) AS percentage
-FROM 
-    employees
-WHERE 
-    age >= 18 
-    AND termdate IS NULL
+FROM employees
+WHERE  age >= 18 AND termdate IS NULL
 GROUP BY 
     gender
 ORDER BY 
