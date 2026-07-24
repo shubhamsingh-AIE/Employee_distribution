@@ -47,7 +47,7 @@ UPDATE employees
 SET termdate = DATE(termdate::timestamp AT TIME ZONE 'UTC')
 WHERE termdate IS NOT NULL AND termdate != '';
 
-ALTER TABLE termdate
+ALTER TABLE employees
 ALTER COLUMN termdate TYPE DATE USING termdate::DATE;
 
 --Adding age column
