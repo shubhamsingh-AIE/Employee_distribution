@@ -23,8 +23,8 @@ WHERE table_name = 'employees';
 --birthdate column
 UPDATE employees
 SET birthdate = CASE
-    WHEN birthdate::text LIKE '%/%' THEN to_char(to_date(birthdate, '%m/%D/%Y%'), 'YYYY-MM-DD')
-    WHEN birthdate::text LIKE '%-%' THEN to_char(to_date(birthdate, '%m-%D-/%Y%'), 'YYYY-MM-DD')
+    WHEN birthdate::text LIKE '%/%' THEN to_char(to_date(birthdate, 'MM/DD/YYYY'), 'YYYY-MM-DD')
+    WHEN birthdate::text LIKE '%-%' THEN to_char(to_date(birthdate, 'MM/DD/YYYY'), 'YYYY-MM-DD')
     ELSE NULL
 END;
 
